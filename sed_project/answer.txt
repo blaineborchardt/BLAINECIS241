@@ -1,0 +1,13 @@
+
+1
+cat /usr/share/dict/american-english | sed -E "s/color/colour/g;s/honor/honour/g;s/behavior/behaviour/g;s/humor/humour/g" > new_dict
+2
+cat /home/woodriir/241/prog.c | sed -E "s/FOOPS/if/g;s/BEEPBOOP/\/\*\*/g" > MyFile.c 
+3
+sed -E '/<script/,/<\/script>/ d' faculty > faculty.index
+4
+cat /usr/include/limits.h | sed -E -n '/\#[\t]*define/p' > clean_limits.h
+5
+cd /home/woodriir/241/txt_files
+cp dna.txt /home/borcharb/BLAINECIS241/sed_project dna.txt
+sed -E -i.ORIG 's/gattaca/@@GREATMOVIE@@/g' dna.txt
