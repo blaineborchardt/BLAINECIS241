@@ -11,3 +11,18 @@ cat /usr/include/limits.h | sed -E -n '/\#[\t]*define/p' > clean_limits.h
 cd /home/woodriir/241/txt_files
 cp dna.txt /home/borcharb/BLAINECIS241/sed_project dna.txt
 sed -E -i.ORIG 's/gattaca/@@GREATMOVIE@@/g' dna.txt
+6
+cp file /home/borcharb/BLAINECIS241/sed_project dna.txt
+touch scriptFile.sh
+vim scriptFile.sh write the ascii
+s/41/A/g
+s/42/B/g
+s/43/C/g
+s/44/D/g
+...
+sed -f scriptFile.sh file.txt > decoded
+
+7
+cp lyrics /home/borcharb/BLAINECIS241/sed_project
+sed -n '50,$p' lyrics | sed '1!G;h;$!d' > ending_lyrics
+
