@@ -15,5 +15,8 @@
 7. md5sum 
    This is the calculation command in which you provided us with.
 
+All together it should look like -> sed 's/""/"\n"/g' midterm.csv | echo "$(tail -n +2 midterm.csv)" | sort -t: -k2,2 | cut -f3,5,6,7,8 --complement midterm.
+sed 's/""/"\n"/g' midterm.csv | echo "$(tail -n +2 midterm.csv)" | sort -t: -k2,2 | cut -f3,5,6,7,8 --complement midterm.csv | 
+(cont.) sed - i"/\b\(Lilianna\)\b/d" midterm.csv | sed -i '/""\/d' midterm.csv | md5sum
 
 
