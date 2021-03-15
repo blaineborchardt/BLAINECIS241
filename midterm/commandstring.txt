@@ -1,0 +1,19 @@
+
+1. sed 's/""/"\n"/g' midterm.csv
+   I used this command with the swap and globally to swap the quote ("") with a newline and a quote ("\n")
+
+2. echo "$(tail -n +2 midterm.csv)" 
+   I used the tail command along with the -n and +2 to tail everything but the first line, making it a much easier way of removing headers.
+3. sort -t: -k2,2 
+   For this one I used the -t flag to seperate the field, and -k2,2 to sort only on the second field.
+4. cut -f3,5,6,7,8 --complement midterm.csv 
+   Here I used the -f to seperate the fields I want to cut and then used --complement to complement what T'm cutting.
+5. sed -i "/\b\(Lilianna\)\b/d" midterm.csv
+   For this one the \b sets the word boundary, d deletes the line matching the expression, and the -i used to edit our file in place.
+6. sed -i '/""\/d' midterm.csv
+   Next, I used the -i flag to edit our file in place , d deletes the expression in which here is the quotes.
+7. md5sum 
+   This is the calculation command in which you provided us with.
+
+
+
