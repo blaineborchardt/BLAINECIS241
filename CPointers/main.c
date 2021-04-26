@@ -1,28 +1,47 @@
-
+#include "file_lib.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include "file_lib.c"
-#include "sorter.c"
+#include "sorter.h"
+#include <string.h>
 
-/*
- * Read the file from the command line.
+/* Read the file from the command-line.
+ * 
  * Usage:
  * ./a.out FILE_TO_READ FILE_TO_WRITE
  *
  */
-int main(int argc, char **argv){
-	
-	//Read the original file.
-	char *file_contents;
-	char *file_path = "out_of_order_file";
-	long length;
 
-	length = load_file(file_path, &file_contents);
+int main(int argc, char** argv){
+		
+		// We are using a character pointer to store the file information.
+		// The file library is able to fill up our contents as if it is an array.
+		char* contents;
 
-	sort(file_contents, length);
+		// We are indicating number of lines & bytes read.
+		// A size t struct is an unsigned long variable.
+		size_t numBytes = 0;
+		int numLines = 0;
 
-	free(file_contents);
+		// Read the original file in contents and returning number of bytes.
+		numBytes = load_file(argv[1], &contents); 
+			printf("%lu number of bytes read from the file.\n", numBytes);
 
-	//Sort the file with the function you wrote.
-	//Write out the new file.
+		// Calculating the number of lines within the file.
+		for (int i=0; i < numBytes; i++){
+					if(contents[i]=='\n'){
+									++numLines;
+											}
+						}
+		// Now we sort the file with the function written.
+		sort(&contents, numLines);
+
+		//Now we write out the new file.
+		save_file(argv[2], contents, numBytes);
+
 }
+// You can see if your file worked correctly by using the
+//  command:
+// 
+//  diff ORIGINAL_FILE NEW_FILE
+// 
+//  If the command returns ANYTHING the files are different.
+//
