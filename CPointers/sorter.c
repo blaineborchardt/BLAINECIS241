@@ -41,8 +41,9 @@ for (k = 1; k < size; k++){
 				while(j >= 0 && strcmp(array[j], key) > 0){
 
 
-					array[j+1] = array[j]			
+					array[j+1] = array[j];			
 					j = j-1;
+
 		}
 					array[j + 1] = key;	
 									
