@@ -107,12 +107,15 @@ Student* five(){
  * 3.54    (gpa [we know he's the smart one])
  */
 Student* six(){
-	Student* j = malloc(sizeof(Student)*10);
-	j.first_name = "Luigi";
-	j.last_name = "Mario";
-	j.g_number = 2;
-	j.gpa = 3.54;
-	return &j;
+	Student* j = (Student*) malloc(sizeof(Student) * 10);
+		j[3].first_name = "Luigi";
+		j[3].last_name = "Mario";
+		j[3].g_number = 2;
+		j[3].gpa = 3.54;
+
+
+		return j;
+
 }
 
 /**
@@ -128,7 +131,11 @@ Student* six(){
  * 3.54    (gpa [we know he's the smart one])
  */
 void seven(Student** students){
-	
+	*students = (Student*) malloc(sizeof(Student) * 10);
+	students[9]->first_name = "Luigi";
+	students[9]->last_name = "Mario";
+	students[9]->g_number = 2;
+	students[9]->gpa = 3.54;
 }
 
 /**
